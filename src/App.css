@@ -36,3 +36,31 @@
     transform: rotate(360deg);
   }
 }
+
+.App {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Make the container div take the full height of the viewport */
+}
+
+.section {
+  flex: 1; /* Each section takes up equal space */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+}
+
+.first-section {
+  flex: 0 0 10%; /* Take up 10% of the container's height */
+  background-color: #e6e6e6;
+}
+
+.second-section {
+  background-color: #cccccc;
+}
+
+.third-section {
+  flex: 0 0 20%; /* Take up 20% of the container's height */
+  background-color: #999999;
+}
