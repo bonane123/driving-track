@@ -1,13 +1,17 @@
 import "./App.css";
 
+import Footer from "./Footer";
+import Header from "./Header";
+import Map from "./Map";
+import Travel from "./Travel";
+
 function App() {
   return (
-    <div className="App">
-      <div className="App">
-        <div className="section first-section">First Section (10%)</div>
-        <div className="section second-section">Second Section (Rest)</div>
-        <div className="section third-section">Third Section (20%)</div>
-      </div>
+    <div className="app">
+      <Header />
+      <Travel/>
+      <div className="container map"><Map/></div>
+      <Footer />
     </div>
   );
 }
