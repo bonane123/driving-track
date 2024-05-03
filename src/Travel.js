@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Travel = () => {
+const Travel = ({distance, duration}) => {
   return (
     <div className="container info">
         <div className="firstInfo">
@@ -10,8 +10,8 @@ const Travel = () => {
           <p>Next stop: Kacyiru Bus park </p>
         </div>
         <div className="lastInfo">
-          <p>Distance: 23km</p>
-          <p>Time: 23 minutes</p>
+          <p>Distance: {distance}</p>
+          <p>Time: {duration}</p>
         </div>
       </div>
   )
