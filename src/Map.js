@@ -1,5 +1,12 @@
-import { GoogleMap, Marker, useJsApiLoader, DirectionsRenderer } from "@react-google-maps/api";
+import {
+  GoogleMap,
+  Marker,
+  useJsApiLoader,
+  DirectionsRenderer,
+} from "@react-google-maps/api";
 import { useCallback, useState } from "react";
+import DriverRoutes from "./DriverRoutes";
+import CarMarker from "./car.png";
 
 const containerStyle = {
   width: "100vw",
@@ -11,22 +18,30 @@ const origin = {
   lng: 30.0445426438232,
 };
 
-function Map(props) {
-  const {setDistance, setDuration} = props;
+function Map() {
   const [directions, setDirections] = useState(null);
+  const [position, setPosition] = useState(origin);
+
+
+  const waypoints = [
+    { location: { lat: -1.9355377074007851, lng: 30.060163829002217 } },
+    { location: { lat: -1.9358808342336546, lng: 30.08024820994666 } },
+    { location: { lat: -1.9489196023037583, lng: 30.092607828989397 } },
+    { location: { lat: -1.9592132952818164, lng: 30.106684061788073 } },
+    { location: { lat: -1.9487480402200394, lng: 30.126596781356923 } },
+  ];
 
   async function calculatedDistance() {
-    // eslint-disable-next-line no-undef
-    const routeDirections = new google.maps.DirectionsService();
+    const routeDirections = new window.google.maps.DirectionsService();
+    
+
     const result = await routeDirections.route({
       origin: "Nyabugogo bus park",
       destination: "Kimironko bus park",
-      // eslint-disable-next-line no-undef
-      travelMode: google.maps.TravelMode.DRIVING,
+      travelMode: window.google.maps.TravelMode.DRIVING,
+      waypoints: waypoints,
     });
     setDirections(result);
-    setDistance(result.routes[0].legs[0].distance.text);
-    setDuration(result.routes[0].legs[0].duration.text);
   }
 
   const { isLoaded } = useJsApiLoader({
@@ -49,23 +64,42 @@ function Map(props) {
     setMap(null);
   }, []);
 
+  // console.log(directions.routes[0].legs[0].end_location.lat())
+  // console.log(directions.routes[0].legs[0].end_location.lng())
+
   return isLoaded ? (
-    <GoogleMap
-      mapContainerStyle={containerStyle}
-      center={origin}
-      zoom={12}
-      onLoad={onLoad}
-      onUnmount={onUnmount}
-      options={{
-        zoomControl: false,
-        streetViewControl: false,
-        mapTypeControl: false,
-        fullscreenControl: false,
-      }}
-    >
-      {!directions && <Marker position={origin} />}
-      {directions && <DirectionsRenderer directions={directions}/>}
-    </GoogleMap>
+    <>
+      <DriverRoutes
+        directions={directions}  setPosition={setPosition} 
+      />
+      <div className="container map">
+      <GoogleMap
+        mapContainerStyle={containerStyle}
+        center={origin}
+        zoom={15}
+        onLoad={onLoad}
+        onUnmount={onUnmount}
+        options={{
+          zoomControl: false,
+          streetViewControl: false,
+          mapTypeControl: false,
+          fullscreenControl: false,
+        }}
+      >
+        {!directions && <Marker position={origin} />}
+        {directions && <DirectionsRenderer directions={directions} />}
+        {directions && (
+                <Marker
+                    position={position}
+                    icon={{
+                        url: CarMarker, 
+                        scaledSize: new window.google.maps.Size(80, 80), 
+                    }}
+                />
+            )}
+      </GoogleMap>
+      </div>
+    </>
   ) : (
     <></>
   );
