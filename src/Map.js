@@ -6,7 +6,7 @@ import {
 } from "@react-google-maps/api";
 import { useCallback, useState } from "react";
 import DriverRoutes from "./DriverRoutes";
-import CarMarker from "./car.png";
+import CarMarker from "./images/bus.png";
 
 const containerStyle = {
   width: "100vw",
@@ -50,7 +50,7 @@ function Map() {
     // googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAP_API_KEY,
     googleMapsApiKey: "AIzaSyDdWorWelg_egr0y4C_S_d-MYwQQCVq2oc",
   });
-  const [map, setMap] = useState(null);
+  const [, setMap] = useState(null);
 
   const onLoad = useCallback(function callback(map) {
     const bounds = new window.google.maps.LatLngBounds(origin);
@@ -62,7 +62,7 @@ function Map() {
 
   const onUnmount = useCallback(function callback(map) {
     setMap(null);
-  }, []);
+  }, [setMap]);
 
   // console.log(directions.routes[0].legs[0].end_location.lat())
   // console.log(directions.routes[0].legs[0].end_location.lng())
@@ -93,7 +93,7 @@ function Map() {
                     position={position}
                     icon={{
                         url: CarMarker, 
-                        scaledSize: new window.google.maps.Size(80, 80), 
+                        scaledSize: new window.google.maps.Size(80, 50), 
                     }}
                 />
             )}
