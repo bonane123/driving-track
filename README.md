@@ -1,6 +1,10 @@
 # Driving Track Project
 
-[Driving Track](https://driving-track.vercel.app) is a simple application that provides the real-time navigation for driver, especially those using public transportation.it utilizes the google maps api to fetch routes and information related to them, and displays it to the user (UI) interface. however, it's all about simulation of real world scenario in absence of using GPS or any Driver's device location service
+[Driving Track](https://driving-track.netlify.app) is a simple application that provides the real-time navigation for driver, especially those using public transportation.it utilizes the google maps api to fetch routes and information related to them, and displays it to the user (UI) interface. however, it's all about simulation of real world scenario in absence of using GPS or any Driver's device location service.
+
+## Deployed Link of Driving Track
+
+[Driving Track](https://driving-track.netlify.app)
 
 ## Application features
 
