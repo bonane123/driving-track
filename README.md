@@ -4,9 +4,9 @@
 
 ## Application features
 
-. Uses pre-defined bus stops with a help of Google Maps Directions API
-. Displays routes and information related to them with Marker at each bus stop
-. Simulates the moving bus within the entire route
+1. Uses pre-defined bus stops with a help of Google Maps Directions API
+2. Displays routes and information related to them with Marker at each bus stop
+3. Simulates the moving bus within the entire route
 
 ## Installation
 
