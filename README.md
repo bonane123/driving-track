@@ -34,20 +34,20 @@
 
 ## Approach to develop the application
 
-. Designed a user interface respective to the screenshot
-![Provided UI](./src/images/ui_image.jpg)
-. Divided the UI into components
-. Installed @react-google-maps/api for loading the maps
-. Loop into the pre-defined bus stops
-. Simulate the moving bus within the route
-. Provide information about the next bus stop
+1. Designed a user interface respective to the screenshot
+   ![Provided UI](./src/images/ui_image.jpg)
+2. Divided the UI into components
+3. Installed @react-google-maps/api for loading the maps
+4. Loop into the pre-defined bus stops
+5. Simulate the moving bus within the route
+6. Provide information about the next bus stop
 
 ## `npm i @react-google-maps/api`
 
 ## Technologies used in Driving track app
 
-. ReactJs
-. CSS
-. @react-google-maps/api
-. Google Maps API
-. Dotenv
+1. ReactJs
+2. CSS
+3. @react-google-maps/api
+4. Google Maps API
+5. Dotenv
