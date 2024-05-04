@@ -7,11 +7,12 @@ const DriverRoutes = ({ directions, setPosition }) => {
   const [timerDuration, setTimerDuration] = useState(1000);
 
   useEffect(() => {
-    if (directions) {
 
+    if (directions) {
       const steps = directions.routes[0].legs;
       setTimerDuration(()=>(parseInt(steps[0].duration.text.split(" ")[0])));
 
+      // Loop through Bus stops and set initial values
       const loopWithDelay = async () => {
         for (let i = 0; i < steps.length; i++) {
           const step = steps[i];
@@ -30,6 +31,8 @@ const DriverRoutes = ({ directions, setPosition }) => {
 
           await new Promise(resolve => setTimeout(resolve, currentTimerDuration));
         }
+
+        // Arrive at final destination 
         if (steps.length > 0) {
             const finalStep = steps[steps.length - 1];
             setNextStop("Final Destination: Kimirongo Bus Park");
@@ -40,7 +43,6 @@ const DriverRoutes = ({ directions, setPosition }) => {
         
       };
 
-      // Start the loop
       loopWithDelay();
 
   // eslint-disable-next-line react-hooks/exhaustive-deps

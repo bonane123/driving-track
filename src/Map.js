@@ -31,10 +31,9 @@ function Map() {
     { location: { lat: -1.9487480402200394, lng: 30.126596781356923 } },
   ];
 
+  // Create routes from origin to destination
   async function calculatedDistance() {
     const routeDirections = new window.google.maps.DirectionsService();
-    
-
     const result = await routeDirections.route({
       origin: "Nyabugogo bus park",
       destination: "Kimironko bus park",
@@ -44,18 +43,16 @@ function Map() {
     setDirections(result);
   }
 
+  // Load google maps by mounting and unmounting with GOOGLE_MAP_API_KEY
   const { isLoaded } = useJsApiLoader({
-    // This is environment variable, but to avoid a darkened map, or 'negative' Street View image,
-    // watermarked with the text "for development purposes only", may be displayed let expose API_KEY
-    // googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAP_API_KEY,
-    googleMapsApiKey: "AIzaSyDdWorWelg_egr0y4C_S_d-MYwQQCVq2oc",
+    googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAP_API_KEY,
   });
+
   const [, setMap] = useState(null);
 
   const onLoad = useCallback(function callback(map) {
     const bounds = new window.google.maps.LatLngBounds(origin);
     map.fitBounds(bounds);
-
     setMap(map);
     calculatedDistance();
   }, []);
@@ -64,8 +61,6 @@ function Map() {
     setMap(null);
   }, [setMap]);
 
-  // console.log(directions.routes[0].legs[0].end_location.lat())
-  // console.log(directions.routes[0].legs[0].end_location.lng())
 
   return isLoaded ? (
     <>

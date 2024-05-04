@@ -1,70 +1,53 @@
-# Getting Started with Create React App
+# Driving Track Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[Driving Track](https://driving-track.vercel.app) is a simple application that provides the real-time navigation for driver, especially those using public transportation.it utilizes the google maps api to fetch routes and information related to them, and displays it to the user (UI) interface. however, it's all about simulation of real world scenario in absence of using GPS or any Driver's device location service
 
-## Available Scripts
+## Application features
 
-In the project directory, you can run:
+. Uses pre-defined bus stops with a help of Google Maps Directions API
+. Displays routes and information related to them with Marker at each bus stop
+. Simulates the moving bus within the entire route
+
+## Installation
+
+1. To run this application to your local computer:
+
+### `git clone https://github.com/bonane123/driving-track.git`
+
+2. Navigate into project directory
+
+### `cd driving-track`
+
+3. Install required dependencies using npm
+
+### `npm install`
+
+4. Get Google Maps API from [Google cloud console ](https://console.cloud.google.com/welcome)
+
+5. Create .env file and configure it by adding Google Maps API key
+
+### `REACT_APP_GOOGLE_MAP_API_KEY=YOUR_GOOGLE_MAP_API_KEY`
+
+6. Start the development server and browser will automatically be opened
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Approach to develop the application
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+. Designed a user interface respective to the screenshot
+![Provided UI](./src/images/ui_image.jpg)
+. Divided the UI into components
+. Installed @react-google-maps/api for loading the maps
+. Loop into the pre-defined bus stops
+. Simulate the moving bus within the route
+. Provide information about the next bus stop
 
-### `npm test`
+## `npm i @react-google-maps/api`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Technologies used in Driving track app
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+. ReactJs
+. CSS
+. @react-google-maps/api
+. Google Maps API
+. Dotenv
